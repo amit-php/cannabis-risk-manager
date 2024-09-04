@@ -1,5 +1,4 @@
 </main>
-
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -8,14 +7,6 @@
                     <div class="footer-logo">
                         <a href="<?php echo home_url();?>"><img src="<?php echo get_theme_value('renovesa_footer_logo') ; ?>" alt="logo"></a>
                     </div>
-                    <!-- <ul class="footer-menu">
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="learning.html">Learning</a></li>
-                        <li><a href="podcast-directory.html">Podcast Directory</a></li>
-                        <li><a href="events.html">Events</a></li>
-                        <li><a href="#">Risk Management</a></li>
-                        <li><a href="#">Insurance</a></li>
-                    </ul> -->
                     <?php
                     wp_nav_menu(array(
                     'menu'=>'footer',

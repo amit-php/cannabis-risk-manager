@@ -112,3 +112,24 @@ function fix_svg()
 		  </style>';
 }
 add_action('admin_head', 'fix_svg');
+
+function remove_editor_from_specific_pages() {
+    // List of page IDs where the editor should be removed
+    $pages = array(9); // Replace with your page IDs
+
+    // Check if we are in the admin area and editing a page
+    if (is_admin()) {
+        global $pagenow;
+        
+        if ($pagenow == 'post.php' || $pagenow == 'post-new.php') {
+            $post_id = isset($_GET['post']) ? $_GET['post'] : '';
+
+            // If the page ID is in the array, remove the editor
+            if (in_array($post_id, $pages)) {
+                remove_post_type_support('page', 'editor');
+            }
+        }
+    }
+}
+add_action('admin_init', 'remove_editor_from_specific_pages');
+
