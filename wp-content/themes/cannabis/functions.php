@@ -5,10 +5,11 @@
 
 /* Optional Panel Helper Functions
 /*--------------------------------------*/
+define('THEME_DIR', get_template_directory_uri() . '/assets');
+
 foreach (glob(get_template_directory() . '/functions/*.php') as $files) {
 	include_once $files;
 }
-
 
 /* Post Type Helper Functions
 /*--------------------------------------*/
@@ -17,17 +18,6 @@ foreach (glob(get_template_directory() . '/inc/post_type/*.php') as $file) {
 	include_once $file;
 }
 
-
-function weaversweb_ftn_wp_enqueue_scripts()
-{
-	if (!is_admin()) {
-		wp_enqueue_script('jquery');
-		if (is_singular() and get_site_option('thread_comments')) {
-			wp_print_scripts('comment-reply');
-		}
-	}
-}
-add_action('wp_enqueue_scripts', 'weaversweb_ftn_wp_enqueue_scripts');
 function weaversweb_ftn_get_option($name)
 {
 	$options = get_option('weaversweb_ftn_options');
@@ -76,39 +66,24 @@ if (!function_exists('weaversweb_theme_setup')) :
 endif;
 add_action('after_setup_theme', 'weaversweb_theme_setup');
 
-
-
-
+// enque theme style and script
 function weaversweb_scripts()
 {
-	wp_enqueue_style('bootstrap.min', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array());
-	wp_enqueue_style('validator-css', 'https://cdnjs.cloudflare.com/ajax/libs/formvalidation/0.6.2-dev/css/formValidation.min.css', array());
-	wp_enqueue_style('font-awesome-all-min', get_template_directory_uri() . '/assets/css/font-awesome-all.min.css', array());
-	wp_enqueue_style('owl-css', get_template_directory_uri() . '/assets/css/owl.carousel.min.css', array());
-	wp_enqueue_style('owl-theme', get_template_directory_uri() . '/assets/css/owl.theme.default.min.css', array());
-	wp_enqueue_style('animate', get_template_directory_uri() . '/assets/css/animate.min.css', array());
-	wp_enqueue_style('custom.css', get_template_directory_uri() . '/assets/css/custom.css', array());
-	// Load the Internet Explorer specific script.
-
+	wp_enqueue_style('bootstrap.min', THEME_DIR . '/css/bootstrap.min.css', array());
+	wp_enqueue_style('font-awesome-all-min', THEME_DIR . '/css/font-awesome.min.css', array());
+	wp_enqueue_style('owl-css', THEME_DIR . '/css/owl.carousel.min.css', array());
+	wp_enqueue_style('owl-theme', THEME_DIR . '/css/owl.theme.default.min.css', array());
+	wp_enqueue_style('animate', THEME_DIR . '/css/aos.css', array());
+	wp_enqueue_style('custom.css', THEME_DIR . '/css/custom.css', array());
 	global $wp_scripts;
-
-
-
-
-	wp_enqueue_script('bootstrap-bundle-min-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array('jquery'), false);
-
-	//wp_enqueue_script('boot', 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js');
-	wp_enqueue_script('font-awesome-all-min-js', get_template_directory_uri() . '/assets/js/font-awesome-all.min.js', array('jquery'), false);
-	wp_enqueue_script('owl-carousel-min', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', array('jquery'), false);
-	wp_enqueue_script('validator-js', 'https://cdnjs.cloudflare.com/ajax/libs/formvalidation/0.6.2-dev/js/formValidation.min.js', array('jquery'), false);
-	wp_enqueue_script('boots-validator-js', 'https://hostssb.weavers-web.com/wp-content/themes/hostssb/assets/js/bootstrap-validation.js', array('jquery'), false);
-
-	wp_enqueue_script('custom-js', get_template_directory_uri() . '/assets/js/custom.js', array(), 1, 1, 1);
+	wp_enqueue_script('bootstrap-bundle-min-js', THEME_DIR . '/js/bootstrap.bundle.min.js', array('jquery'), false);
+	wp_enqueue_script('font-awesome-all-min-js', THEME_DIR . '/js/font-awesome-all.min.js', array('jquery'), false);
+	wp_enqueue_script('owl-carousel-min', THEME_DIR . '/js/owl.carousel.min.js', array('jquery'), false);
+	wp_enqueue_script('PLAYER-js', 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js', array('jquery'), false);
+	wp_enqueue_script('AOS-js', THEME_DIR . '/js/aos.js', array('jquery'), false);
+	wp_enqueue_script('custom-js', THEME_DIR . '/js/custom.js', array(), 1, 1, 1);
 }
 add_action('wp_enqueue_scripts', 'weaversweb_scripts');
-
-
-
 //** SVG format supporter
 
 add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mimes) {

@@ -28,46 +28,6 @@ if (!function_exists('weaversweb_ftn_options')) {
 				"type" => "upload"
 			),
 
-			array(
-				"name" => "Header Phone Icon",
-				"desc" => "Choose Phone icon",
-				"id" => "renovesa_phone_icon",
-				"std" => "",
-				"type" => "upload"
-			),
-
-			array(
-				"name" => "Header Phone Number",
-				"desc" => "Enter Phone Number",
-				"id" => "renovesa_phone_no",
-				"std" => "",
-				"type" => "text"
-			),
-
-			array(
-				"name" => "Header Email Icon",
-				"desc" => "Choose Email Icon",
-				"id" => "renovesa_email_icon",
-				"std" => "",
-				"type" => "upload"
-			),
-
-			array(
-				"name" => "Header Email Address",
-				"desc" => "Enter Email Address",
-				"id" => "renovesa_email_id",
-				"std" => "",
-				"type" => "text"
-			),
-
-			array(
-				"name" => "Header Contact Us Button Text",
-				"desc" => "Enter Text",
-				"id" => "rheader_contact_text",
-				"std" => "",
-				"type" => "text"
-			),
-
 
 			/* Header Section end*/
 			/* ---------------------------------------------------------------------------- */
@@ -167,18 +127,18 @@ if (!function_exists('weaversweb_ftn_options')) {
 				"type" => "heading"
 			),
 			array(
-				"name" => " Facebook Title",
-				"desc" => "Enter Facebook Title",
-				"id" => "renovesa_fb_title",
+				"name" => "Newsletter title",
+				"desc" => "Enter Newsletter title",
+				"id" => "rheader_newsletter_title",
 				"std" => "",
 				"type" => "text"
 			),
 			array(
-				"name" => " Facebook Icon",
-				"desc" => "Choose facebook Icon",
-				"id" => "renovesa_fb_icon",
+				"name" => "Newsletter Link",
+				"desc" => "Enter Newsletter link",
+				"id" => "rheader_newsletter_link",
 				"std" => "",
-				"type" => "upload"
+				"type" => "text"
 			),
 			array(
 				"name" => "Facebook Link",
@@ -188,20 +148,7 @@ if (!function_exists('weaversweb_ftn_options')) {
 				"type" => "text"
 			),
 
-			array(
-				"name" => "Twitter Title",
-				"desc" => "Enter Twitter Title",
-				"id" => "renovesa_tw_title",
-				"std" => "",
-				"type" => "text"
-			),
-			array(
-				"name" => "Twitter Icon",
-				"desc" => "Choose twitter Icon",
-				"id" => "renovesa_twit_icon",
-				"std" => "",
-				"type" => "upload"
-			),
+			
 			array(
 				"name" => "Twitter Link",
 				"desc" => "Enter Twitter Link",
@@ -211,19 +158,13 @@ if (!function_exists('weaversweb_ftn_options')) {
 			),
 
 			array(
-				"name" => "Linkedin Title",
-				"desc" => "Enter Linkedin Title",
-				"id" => "renovesa_ln_title",
+				"name" => "youtube Link",
+				"desc" => "Enter youtube Link",
+				"id" => "rheader_youtube_link",
 				"std" => "",
 				"type" => "text"
 			),
-			array(
-				"name" => "Linkedin Icon",
-				"desc" => "Choose linkedin Icon",
-				"id" => "renovesa_lin_icon",
-				"std" => "",
-				"type" => "upload"
-			),
+
 			array(
 				"name" => "Linkdin Link",
 				"desc" => "Enter Linkdin Link",
@@ -231,13 +172,8 @@ if (!function_exists('weaversweb_ftn_options')) {
 				"std" => "",
 				"type" => "text"
 			),
-			array(
-				"name" => "Arrow Image",
-				"desc" => "Choose Image",
-				"id" => "rheader_arrow_img",
-				"std" => "",
-				"type" => "upload"
-			),
+		
+			
 
 
 			//////////////////////////////contact section/////////////////////////////////////////
