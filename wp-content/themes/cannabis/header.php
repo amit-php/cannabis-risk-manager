@@ -49,32 +49,6 @@
                     'menu_class'=>'',
                     ))
                   ?>
-                  <!-- <ul>
-                    <li class="menu-has-children"><a href="news-listing.html">News</a><span></span>
-                        <ul class="sub-menu">
-                            <li><a href="">News 1</a></li>
-                            <li><a href="">News 2</a></li>
-                            <li><a href="">News 3</a></li>
-                            <li><a href="">News 4</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Risk Management</a></li>
-                    <li><a href="#">Insurance</a></li>
-                    <li class="menu-has-children"><a href="#">States</a><span></span>
-                        <ul class="sub-menu">
-                            <li><a href="">States 1</a></li>
-                            <li><a href="">States 2</a></li>
-                            <li><a href="">States 3</a></li>
-                            <li><a href="">States 4</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="learning.html">Learning</a></li>
-                    <li><a href="podcast-directory.html">Podcast Directory</a></li>
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="ebooks.html">Ebooks</a></li>
-
-                  </ul> -->
                 </div>
                 <div class="user-sec">
                     <div class="search-box">
@@ -103,30 +77,12 @@
                   <div class="inner-container">
                       <div class="mobile-top-section"> </div>
                       <div class="mobile-menu">
-                            <ul>
-                                <li class="menu-item-has-children"><a href="news-listing.html">News<span></span></a>
-                                    <ul class='sub-menu'>
-                                        <li><a href="#" title="">News 1</a></li>
-                                        <li><a href="#" title="">News 2</a></li>
-                                        <li><a href="#" title="">News 3</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Risk Management</a></li>
-                                <li><a href="#">Insurance</a></li>
-                                <li class="menu-item-has-children"><a href="#">States <span></span></a>
-                                    <ul class='sub-menu'>
-                                        <li><a href="#" title="">States 1</a></li>
-                                        <li><a href="#" title="">States 2</a></li>
-                                        <li><a href="#" title="">States 3</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="learning.html">Learning</a></li>
-                                <li><a href="podcast-directory.html">Podcast Directory</a></li>
-                                <li><a href="events.html">Events</a></li>
-                                <li><a href="ebooks.html">Ebooks</a></li>
-
-                            </ul>
+                      <?php
+                    wp_nav_menu(array(
+                    'menu'=>'header',
+                    'menu_class'=>'',
+                    ))
+                  ?>
                       </div>
                   </div>
               </div>

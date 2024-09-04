@@ -48,25 +48,6 @@ if (!function_exists('weaversweb_ftn_options')) {
 			),
 
 
-
-
-			array(
-				"name" => "Footer Description",
-				"desc" => "Enter Footer Description",
-				"id" => "ren_footer_desc",
-				"std" => "",
-				"type" => "textarea"
-			),
-
-
-			array(
-				"name" => "Footer Contact Info Title",
-				"desc" => "Enter Footer Contact Info Title",
-				"id" => "ren_footer_ci_title",
-				"std" => "",
-				"type" => "text"
-			),
-
 			array(
 				"name" => "Footer Contact No",
 				"desc" => "Enter Footer Contact No",
@@ -75,14 +56,7 @@ if (!function_exists('weaversweb_ftn_options')) {
 				"type" => "text"
 			),
 
-			array(
-				"name" => "Footer Email",
-				"desc" => "Enter Footer Email",
-				"id" => "ren_footer_email",
-				"std" => "",
-				"type" => "text"
-			),
-
+		
 			array(
 				"name" => "Footer Address",
 				"desc" => "Enter Footer Address",
@@ -91,31 +65,38 @@ if (!function_exists('weaversweb_ftn_options')) {
 				"type" => "text"
 			),
 
-
-			array(
-				"name" => "Footer Resources Title",
-				"desc" => "Enter Resources Title",
-				"id" => "ren_footer_resources_title",
-				"std" => "",
-				"type" => "text"
-			),
-
-
-
-			array(
-				"name" => "Footer Follow Us Title",
-				"desc" => "Enter Follow Us Title",
-				"id" => "ren_footer_follow_us_title",
-				"std" => "",
-				"type" => "text"
-			),
-
-
-
 			array(
 				"name" => "Copyright Text",
 				"desc" => "Enter Copyright Text",
 				"id" => "ren_copyright_text",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Terms & Condition Title",
+				"desc" => "Terms & Condition Title",
+				"id" => "ren_term_text",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Terms & Condition Link",
+				"desc" => "Enter Terms & Condition Link",
+				"id" => "ren_term_link",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Privacy Policy Title",
+				"desc" => "Privacy Policy Title",
+				"id" => "ren_privicy_text",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Privacy Policy Link",
+				"desc" => "Enter Privacy Policy Link",
+				"id" => "ren_privicy_link",
 				"std" => "",
 				"type" => "text"
 			),
@@ -176,165 +157,13 @@ if (!function_exists('weaversweb_ftn_options')) {
 			
 
 
-			//////////////////////////////contact section/////////////////////////////////////////
-			array(
-				"name" => "Contact Section",
-				"type" => "heading"
-			),
-			array(
-				"name" => "Contact Us Title",
-				"desc" => "Enter Contact Us Title",
-				"id" => "renovesa_contact_title",
-				"std" => "",
-				"type" => "text"
-			),
-			array(
-				"name" => "Get In Touch Title",
-				"desc" => "Enter Get In Touch Title",
-				"id" => "renovesa_getintouch_title",
-				"std" => "",
-				"type" => "text"
-			),
-
-			array(
-				"name" => "Get In Touch Subtitle",
-				"desc" => "Enter Get In Touch Subtitle",
-				"id" => "renovesa_getintouch_subtitle",
-				"std" => "",
-				"type" => "text"
-			),
-
-			array(
-				"name" => "Contact Us Image",
-				"desc" => "Choose Image",
-				"id" => "contact_us_img",
-				"std" => "",
-				"type" => "upload"
-			),
-			array(
-				"name" => "Contact Us Form Short Code",
-				"desc" => "Insert Short Code",
-				"id" => "contact_us_shortcode",
-				"std" => "",
-				"type" => "text"
-			),
-			////////////Question & Answer Popup///////////////////////////////////////
-			//////////////////1.First Question/////////////////////////////////////
-			array(
-				"name" => "Question One Lable",
-				"desc" => "Enter Your First Question",
-				"id" => "cfst_qstn",
-				"std" => "",
-				"type" => "text"
-			),
-			array(
-				"name" => "Question One First Option Image",
-				"desc" => "Choose Image",
-				"id" => "cfst_qstn_fst_img",
-				"std" => "",
-				"type" => "upload"
-			),
-
-			array(
-				"name" => "Question One First Option Title",
-				"desc" => "Enter the first option for question one",
-				"id" => "cfst_qstn_fst_title",
-				"std" => "",
-				"type" => "text"
-			),
-
-			array(
-				"name" => "Question One Second Option Image",
-				"desc" => "Choose Image",
-				"id" => "cfst_qstn_snd_img",
-				"std" => "",
-				"type" => "upload"
-			),
-
-			array(
-				"name" => "Question One Second Option Title",
-				"desc" => "Enter the second option for question one",
-				"id" => "cfst_qstn_snd_title",
-				"std" => "",
-				"type" => "text"
-			),
+		
 
 			//////////////////2.Second Question/////////////////////////////////////
-			array(
-				"name" => "Question Two Lable",
-				"desc" => "Enter Your second Question",
-				"id" => "csnd_qstn",
-				"std" => "",
-				"type" => "text"
-			),
-			array(
-				"name" => "Question Two First Option Image",
-				"desc" => "Choose Image",
-				"id" => "csnd_qstn_fst_img",
-				"std" => "",
-				"type" => "upload"
-			),
-
-			array(
-				"name" => "Question Two First Option Title",
-				"desc" => "Enter the first option for question two",
-				"id" => "csnd_qstn_fst_title",
-				"std" => "",
-				"type" => "text"
-			),
-
-			array(
-				"name" => "Question Two Second Option Image",
-				"desc" => "Choose Image",
-				"id" => "csnd_qstn_snd_img",
-				"std" => "",
-				"type" => "upload"
-			),
-
-			array(
-				"name" => "Question Two Second Option Title",
-				"desc" => "Enter the second option for question two",
-				"id" => "csnd_qstn_snd_title",
-				"std" => "",
-				"type" => "text"
-			),
-
-			array(
-				"name" => "Question Two Third Option Image",
-				"desc" => "Choose Image",
-				"id" => "csnd_qstn_third_img",
-				"std" => "",
-				"type" => "upload"
-			),
-
-			array(
-				"name" => "Question Two Third Option Title",
-				"desc" => "Enter the third option for question two",
-				"id" => "csnd_qstn_third_title",
-				"std" => "",
-				"type" => "text"
-			),
+			
 
 			//////////////////////////blog section (single page)////////////////////////////
-			array(
-				"name" => "Blogs Section",
-				"type" => "heading"
-			),
-			array(
-				"name" => "Related Blogs Heading",
-				"desc" => "Enter Related Blogs Heading",
-				"id" => "ren_blog_head",
-				"std" => "",
-				"type" => "text"
-			),
-
-			array(
-				"name" => "Related Blogs Subheading",
-				"desc" => "Enter Related Blogs SubHeading",
-				"id" => "ren_blog_sub_head",
-				"std" => "",
-				"type" => "text"
-			),
+			
 
 			//////////button section//////////////////////////
 
