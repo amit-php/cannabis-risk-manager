@@ -84,33 +84,39 @@ function weaversweb_scripts()
 	wp_enqueue_script('custom-js', THEME_DIR . '/js/custom.js', array(), 1, 1, 1);
 }
 add_action('wp_enqueue_scripts', 'weaversweb_scripts');
-//** SVG format supporter
 
+// Enqueue a custom stylesheet for the WordPress admin area
+function my_custom_admin_styles() {
+    wp_enqueue_style('my-admin-style', THEME_DIR . '/css/admin-style.css', array(),'1.0.0');
+}
+add_action('admin_enqueue_scripts', 'my_custom_admin_styles');
+
+//** SVG format supporter
 add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mimes) {
 	$filetype = wp_check_filetype($filename, $mimes);
-	return [
-		'ext' => $filetype['ext'],
-		'type' => $filetype['type'],
-		'proper_filename' => $data['proper_filename']
-	];
-}, 10, 4);
+		return [
+			'ext' => $filetype['ext'],
+			'type' => $filetype['type'],
+			'proper_filename' => $data['proper_filename']
+		];
+	   }, 10, 4);
 
-function cc_mime_types($mimes)
-{
-	$mimes['svg'] = 'image/svg+xml';
-	return $mimes;
-}
+	function cc_mime_types($mimes)
+	{
+		$mimes['svg'] = 'image/svg+xml';
+		return $mimes;
+	}
 add_filter('upload_mimes', 'cc_mime_types');
 
-function fix_svg()
-{
-	echo '<style type="text/css">
-		  .attachment-266x266, .thumbnail img {
-			   width: 100% !important;
-			   height: auto !important;
-		  }
-		  </style>';
-}
+	function fix_svg()
+	{
+		echo '<style type="text/css">
+			.attachment-266x266, .thumbnail img {
+				width: 100% !important;
+				height: auto !important;
+			}
+			</style>';
+	}
 add_action('admin_head', 'fix_svg');
 
 function remove_editor_from_specific_pages() {
