@@ -5,9 +5,6 @@
     $post = get_post($postId);
     $post->post_type = ucwords(strtolower($post->post_type));
      // Get categories associated with the post
-   // Get custom taxonomy terms (if any)
-   //$custom_terms = wp_get_post_terms($post_id, 'news_type'); // Replace 'your_custom_taxonomy' with the actual custom taxonomy
-   //$post['custom_terms'] = !empty($custom_terms) && !is_wp_error($custom_terms) ? $custom_terms : [];
    $terms = wp_get_post_terms($postId, 'news_type');
 
    // Check if terms were retrieved successfully
@@ -16,7 +13,6 @@
        $term_names = array_map(function($term) {
            return $term->name;
        }, $terms);
-
        // Combine the names with a space between them
        $combined_names = $term_names;
 
@@ -50,8 +46,11 @@
    if($interval && ($interval->h <= 48) ){
     $post->interval = $interval->h . ' hours ago';
    }
-
    $post->customdate = $formatted_date;
+
+    //post thumbnail
+    $postImage = get_the_post_thumbnail_url($postId, 'full');
+    $post->thumbnailUrl = $postImage;
 
   
    return $post;
@@ -107,5 +106,18 @@ function get_popular_posts($number_of_posts,$postType) {
     return $popular_posts ; 
 
     
+}
+// get all post
+function get_all_post_details($numberposts,$postType){
+    $args = array(
+        'numberposts' => $numberposts, 
+        'post_type'   => $postType, 
+        'post_status' => 'publish', 
+        'orderby'     => 'date', 
+        'order'       => 'DESC',
+    );
+    
+    $latest_posts = get_posts($args);
+    return $latest_posts ;
 }
 
