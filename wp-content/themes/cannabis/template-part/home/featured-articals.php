@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <?php 
-                  $getFeaturedpostInfo = get_all_post_details(-1,"news");
+                  $getFeaturedpostInfo = get_all_post_details(4,"news");
                   if($getFeaturedpostInfo):
                     ?>
                 <div class="col-lg-6">
@@ -73,7 +73,7 @@
                           $postDetails = get_post_info($featuredPostId);
                           $authorInfo = $postDetails->author;
                           $is_featured = get_field('is_featured_articles',$featuredPostId);
-                          if($key == 3 ):
+                          if($key == 3 && $is_featured):
                        
                     ?>
                     <div class="featured-right-img-box">
