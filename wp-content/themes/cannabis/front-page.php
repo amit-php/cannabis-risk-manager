@@ -6,118 +6,12 @@
 <!-- feature articals  -->
 <?php get_template_part('template-part/home/featured-articals'); ?>
 
+<!-- Latest news  -->
+<?php get_template_part('template-part/home/latest-news'); ?>
+
     
 
-    <section class="letest-news light-green-bg common-padd">
-        <div class="container">
-            <div class="common-heading">
-                <div class="common-heading-text">
-                    <h2 class="light-green-bg">Latest News</h2>
-                </div>
-                <div class="common-heading-text right-text">
-                    <a href="#" class="view-more-btn light-green-bg">View more news </a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-4 col-md-4">
-                    <div class="letest-news-box">
-                        <div class="letest-news-img">
-                            <img src="<?php echo THEME_DIR; ?>/images/letest-news1.jpg" alt="letest-news">
-                        </div>
-                        <div class="category-details-box">
-                            <ul class="category-tag">
-                                <li>News</li>
-                                <li>Technology</li>
-                            </ul>
-                            <h4><a href="#">Sustainable Cannabis Cultivation: Boosting Efficiency and Profit</a></h4>
-                            <div class="date-wrapper-main">
-                                <div class="detail-box">
-                                    <span><img src="<?php echo THEME_DIR; ?>/images/profile.svg" alt="profile"></span>
-                                </div>
-                                <ul class="date-box">
-                                    <li>Cannabis risk manager staff</li>
-                                    <li>July 31, 2024</li>
-                                    <li>2 hours ago</li>
-                                </ul>
-                            </div>  
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-4">
-                    <div class="letest-news-box">
-                        <div class="letest-news-img">
-                            <img src="<?php echo THEME_DIR; ?>/images/letest-news2.jpg" alt="letest-news">
-                        </div>
-                        <div class="category-details-box">
-                            <ul class="category-tag">
-                                <li>News</li>
-                                <li>Politics</li>
-                            </ul>
-                            <h4><a href="#">Florida Police Oppose Recreational Weed; Supporters Cite Costs</a></h4>
-                            <div class="date-wrapper-main">
-                                <div class="detail-box">
-                                    <span><img src="<?php echo THEME_DIR; ?>/images/profile.svg" alt="profile"></span>
-                                </div>
-                                <ul class="date-box">
-                                    <li>Cannabis risk manager staff</li>
-                                    <li>July 31, 2024</li>
-                                    <li>2 hours ago</li>
-                                </ul>
-                            </div>  
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-4">
-                    <div class="letest-news-box">
-                        <div class="letest-news-img">
-                            <img src="<?php echo THEME_DIR; ?>/images/letest-news3.jpg" alt="letest-news">
-                        </div>
-                        <div class="category-details-box">
-                            <ul class="category-tag">
-                                <li>News</li>
-                                <li>Cultivation</li>
-                            </ul>
-                            <h4><a href="#">MTL Cannabis Achieves Record Revenue of $83.1M for 2024</a></h4>
-                            <div class="date-wrapper-main">
-                                <div class="detail-box">
-                                    <span><img src="<?php echo THEME_DIR; ?>/images/profile.svg" alt="profile"></span>
-                                </div>
-                                <ul class="date-box">
-                                    <li>Cannabis risk manager staff</li>
-                                    <li>July 31, 2024</li>
-                                    <li>2 hours ago</li>
-                                </ul>
-                            </div>  
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row letest-news-add">
-                <div class="col-lg-6 col-md-6">
-                    <div class="row add-sec">
-                        <div class="col-lg-12">
-                            <div class="add-box">
-                                <img src="<?php echo THEME_DIR; ?>/images/add3.jpg" alt="add-bg">
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="row add-sec">
-                        <div class="col-lg-12">
-                            <div class="add-box">
-                                <img src="<?php echo THEME_DIR; ?>/images/add4.jpg" alt="add-bg">
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <section class="upcomming-events-sec common-padd">
         <img class="banner-img" src="<?php echo THEME_DIR; ?>/images/upcommin-events-banner.jpg" alt="upcommin-events-banner">
