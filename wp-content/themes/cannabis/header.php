@@ -17,7 +17,7 @@
 </head>
 <body <?php body_class(); ?>>
 <!--header sction-->
-<header class="main-header">
+<header class="main-header<?php if (is_single()) { echo ' nobanner-header'; } ?>">
     <div class="container header-row">
         <div class="top-header">
             <div class="right-box">

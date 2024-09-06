@@ -92,7 +92,7 @@ function exclude_bots_and_logged_in_users() {
 }
 
 // Function to display popular posts
-function get_popular_posts($number_of_posts,$postType) {
+function get_popular_posts($number_of_posts,$postType,$taxonomy=false,$term_id=false) {
     $args = array(
         'posts_per_page' => $number_of_posts, // Number of posts to retrieve
         'meta_key'       => 'post_views_count', // Meta key to query
@@ -100,6 +100,13 @@ function get_popular_posts($number_of_posts,$postType) {
         'order'          => 'DESC', // Highest view counts first
         'post_type'      => $postType, // Post type to query (e.g., posts)
         'post_status'    => 'publish', // Only published posts
+        'tax_query'      => array(
+            array(
+                'taxonomy' => $taxonomy, // Dynamic taxonomy (e.g., 'category', 'post_tag')
+                'field'    => 'term_id', // Can use 'term_id' or 'slug'
+                'terms'    => $term_id, // Dynamic term ID or term array
+            ),
+        ),
     );
     
     $popular_posts = get_posts($args);
@@ -120,4 +127,41 @@ function get_all_post_details($numberposts,$postType){
     $latest_posts = get_posts($args);
     return $latest_posts ;
 }
+function get_posts_with_tax_and_pagination($post_type,$taxonomy, $term_id, $posts_per_page = 10) {
+    // Get the current page number for pagination
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+    // Arguments for WP_Query
+    $args = array(
+        'posts_per_page' => $posts_per_page,
+        'paged'          => $paged,
+        'post_type'      => $post_type, // or your custom post type
+        'post_status'    => 'publish',
+        'tax_query'      => array(
+            array(
+                'taxonomy' => $taxonomy, // Taxonomy (e.g., category, post_tag)
+                'field'    => 'term_id', // Field to compare (in this case, term_id)
+                'terms'    => $term_id,  // The ID of the term to filter posts by
+                'operator' => 'IN',
+            ),
+        ),
+    );
+
+    // The Query
+   return $query = new WP_Query($args);
+}
+function get_pagination($query){
+     // Pagination
+     $big = 999999999; // Need an unlikely integer for replacement in paginate_links()
+     $pagination = paginate_links(array(
+        'base'      => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+        'format'    => '?paged=%#%', // Format for pagination links
+        'current'   => max(1, get_query_var('paged')), // Current page number
+        'total'     => $query->max_num_pages, // Total pages
+        'prev_text' => __('&laquo; Previous'), // Previous page text
+        'next_text' => __('Next &raquo;'), // Next page text
+    ));
+     return $pagination ; 
+}
+
 
