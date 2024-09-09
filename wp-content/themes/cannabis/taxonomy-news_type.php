@@ -2,12 +2,12 @@
 echo get_header() ; 
 $term = get_queried_object(); // Get the current term object
 if ($term && !is_wp_error($term)) {
-    $term_id   = $term->term_id; 
+    $term_id[]   = $term->term_id; 
     $term_name = $term->name;     
 }
  ?>
     <section class="banner-sec inner-banner">
-        <img class="banner-img" src="<?php echo  get_field('add_banner_image', 'term_' . $term_id);  ?>" alt="">
+        <img class="banner-img" src="<?php echo  get_field('add_banner_image', 'term_' . $term_id[0]);  ?>" alt="">
         <div class="banner-content">
             <div class="container">
                 <div class="row align-items-end">
@@ -147,8 +147,7 @@ if ($getPopularpost) :
 
             <div class="row">
                 <?php 
-                $temArr[]=$term_id;
-                $getAllpost = get_posts_with_tax_and_pagination('news','news_type', $temArr, 3);
+                $getAllpost = get_posts_with_tax_and_pagination('news','news_type', $term_id, 6);
                 if ($getAllpost->have_posts()):
                     while ($getAllpost->have_posts()) :
                         $getAllpost->the_post();

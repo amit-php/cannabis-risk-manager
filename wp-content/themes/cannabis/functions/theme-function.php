@@ -105,6 +105,7 @@ function get_popular_posts($number_of_posts,$postType,$taxonomy=false,$term_id=f
                 'taxonomy' => $taxonomy, // Dynamic taxonomy (e.g., 'category', 'post_tag')
                 'field'    => 'term_id', // Can use 'term_id' or 'slug'
                 'terms'    => $term_id, // Dynamic term ID or term array
+                'operator' => 'IN',
             ),
         ),
     );

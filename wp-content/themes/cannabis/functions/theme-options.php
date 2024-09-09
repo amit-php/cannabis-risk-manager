@@ -154,49 +154,92 @@ if (!function_exists('weaversweb_ftn_options')) {
 				"type" => "text"
 			),
 		
-			
-
-
-		
-
-			//////////////////2.Second Question/////////////////////////////////////
-			
-
-			//////////////////////////blog section (single page)////////////////////////////
-			
 
 			//////////button section//////////////////////////
 
 			array(
-				"name" => "Button Section",
+				"name" => "News Details",
 				"type" => "heading"
 			),
 			array(
-				"name" => "Learn More Button Title For Blog",
-				"desc" => "Enter Learn More Button Title For Blog",
-				"id" => "ln_btn_blog",
+				"name" => "Add slot header 1",
+				"desc" => "Enter id",
+				"id" => "news_Add_slot_1",
 				"std" => "",
 				"type" => "text"
 			),
 			array(
-				"name" => "Learn More Button Title For Product",
-				"desc" => "Enter Learn More Button Title For Product",
-				"id" => "ln_btn_product",
+				"name" => "Add slot Recommended Articles 1",
+				"desc" => "Enter id",
+				"id" => "news_Add_slot_2",
 				"std" => "",
 				"type" => "text"
 			),
 			array(
-				"name" => "Testimonials Section",
-				"type" => "heading"
+				"name" => "Add slot Recommended Articles 2",
+				"desc" => "Enter id",
+				"id" => "news_Add_slot_3",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Add slot Recommended Articles 3",
+				"desc" => "Enter id",
+				"id" => "news_Add_slot_4",
+				"std" => "",
+				"type" => "text"
 			),
 
 			array(
-				"name" => "Testimonial title",
-				"desc" => "Enter Testimonial title",
-				"id" => "testimonial_title",
+				"name" => "Add slot footer 1",
+				"desc" => "Enter id",
+				"id" => "news_Add_slot_5",
 				"std" => "",
 				"type" => "text"
 			),
+			array(
+				"name" => "Add slot footer 2",
+				"desc" => "Enter id",
+				"id" => "news_Add_slot_6",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Recommended Articles Text",
+				"desc" => "Enter title",
+				"id" => "news_rem_artical_title",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Top News Text",
+				"desc" => "Enter title",
+				"id" => "news_top_title",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Latest News Text",
+				"desc" => "Enter title",
+				"id" => "news_latest_title",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Read next",
+				"desc" => "Enter title",
+				"id" => "news_read_next_title",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Read Previous Text",
+				"desc" => "Enter title",
+				"id" => "news_read_previous_title",
+				"std" => "",
+				"type" => "text"
+			),
+
 
 
 		);

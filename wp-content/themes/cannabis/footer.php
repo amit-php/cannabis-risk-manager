@@ -17,10 +17,10 @@
 
                 <div class="contact-setails">
                     <ul class="social-icon">
-                        <li><a href="<?php echo get_theme_value('rheader_facebook_link') ; ?>"" class="faceBook-icon"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="<?php echo get_theme_value('rheader_twitter_link') ; ?>"" class="twitter-icon"><img src="<?php echo THEME_DIR; ?>/images/twitter.png" alt="twitter"></a></li>
-                        <li><a href="<?php echo get_theme_value('rheader_youtube_link') ; ?>"" class="youtube-icon"><i class="fab fa-youtube"></i></a></li>
-                        <li><a href="<?php echo get_theme_value('rheader_linkdin_link') ; ?>"" class="linkdin-icon"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="<?php echo get_theme_value('rheader_facebook_link') ; ?>" class="faceBook-icon"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="<?php echo get_theme_value('rheader_twitter_link') ; ?>" class="twitter-icon"><img src="<?php echo THEME_DIR; ?>/images/twitter.png" alt="twitter"></a></li>
+                        <li><a href="<?php echo get_theme_value('rheader_youtube_link') ; ?>" class="youtube-icon"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="<?php echo get_theme_value('rheader_linkdin_link') ; ?>" class="linkdin-icon"><i class="fab fa-linkedin-in"></i></a></li>
                     </ul>
                     <ul class="office-details">
                         <li><a href="tel:<?php echo get_theme_value('ren_footer_phone_no') ; ?>"><span><i class="fas fa-phone-alt"></i></span><span><?php echo get_theme_value('ren_footer_phone_no') ; ?></span></a></li>
