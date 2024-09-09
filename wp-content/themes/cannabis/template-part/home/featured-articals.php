@@ -16,7 +16,9 @@
                     </div>
                 </div>
                 <?php 
-                  $getFeaturedpostInfo = get_all_post_details(4,"news");
+                $termids[] = 9 ;
+                 // $getFeaturedpostInfo = get_all_post_details(-1,"news");
+                  $getFeaturedpostInfo = get_post_by_tag_val("news",4,"news_tag",$termids);
                   if($getFeaturedpostInfo):
                     ?>
                 <div class="col-lg-6">
@@ -26,8 +28,8 @@
                           $featuredPostId = $value->ID;
                           $postDetails = get_post_info($featuredPostId);
                           $authorInfo = $postDetails->author;
-                          $is_featured = get_field('is_featured_articles',$featuredPostId);
-                          if($key < 3 && $is_featured):
+                        
+                          if($key < 3 ):
                        
                     ?>
                         <div class="featured-img-box">
@@ -72,8 +74,7 @@
                           $featuredPostId = $value->ID;
                           $postDetails = get_post_info($featuredPostId);
                           $authorInfo = $postDetails->author;
-                          $is_featured = get_field('is_featured_articles',$featuredPostId);
-                          if($key == 3 && $is_featured):
+                          if($key == 3):
                        
                     ?>
                     <div class="featured-right-img-box">

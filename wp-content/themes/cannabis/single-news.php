@@ -3,7 +3,6 @@ echo get_header() ;
 $postDetails = get_post_info($post->ID);
 $authorInfo = $postDetails->author;
 $pdIds = $post->ID;
-
 ?>
     <section class="featured-articles-sec business-news ebook-padd">
         <div class="container">

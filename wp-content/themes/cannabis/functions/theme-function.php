@@ -93,6 +93,7 @@ function exclude_bots_and_logged_in_users() {
 
 // Function to display popular posts
 function get_popular_posts($number_of_posts,$postType,$taxonomy=false,$term_id=false) {
+    if($term_id){
     $args = array(
         'posts_per_page' => $number_of_posts, // Number of posts to retrieve
         'meta_key'       => 'post_views_count', // Meta key to query
@@ -110,7 +111,18 @@ function get_popular_posts($number_of_posts,$postType,$taxonomy=false,$term_id=f
         ),
     );
     
-    $popular_posts = get_posts($args);
+   
+} else {
+    $args = array(
+        'posts_per_page' => $number_of_posts, // Number of posts to retrieve
+        'meta_key'       => 'post_views_count', // Meta key to query
+        'orderby'        => 'meta_value_num', // Order by the numeric meta value
+        'order'          => 'DESC', // Highest view counts first
+        'post_type'      => $postType, // Post type to query (e.g., posts)
+        'post_status'    => 'publish'
+    ); 
+}
+$popular_posts = get_posts($args);
     return $popular_posts ; 
 
     
@@ -128,11 +140,11 @@ function get_all_post_details($numberposts,$postType){
     $latest_posts = get_posts($args);
     return $latest_posts ;
 }
-function get_posts_with_tax_and_pagination($post_type,$taxonomy, $term_id, $posts_per_page = 10) {
+function get_posts_with_tax_and_pagination($post_type,$taxonomy, $term_id=false, $posts_per_page = 10) {
     // Get the current page number for pagination
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
     // Arguments for WP_Query
+    if($term_id) {
     $args = array(
         'posts_per_page' => $posts_per_page,
         'paged'          => $paged,
@@ -147,6 +159,14 @@ function get_posts_with_tax_and_pagination($post_type,$taxonomy, $term_id, $post
             ),
         ),
     );
+} else {
+    $args = array(
+        'posts_per_page' => $posts_per_page,
+        'paged'          => $paged,
+        'post_type'      => $post_type, // or your custom post type
+        'post_status'    => 'publish'
+    );
+}
 
     // The Query
    return $query = new WP_Query($args);
@@ -163,6 +183,32 @@ function get_pagination($query){
         'next_text' => __('Next &raquo;'), // Next page text
     ));
      return $pagination ; 
+}
+//tag function
+function get_post_by_tag_val($postType,$postPerPage,$texonomy,$termid){
+    if($termid){
+    $args = array(
+        'post_type'      => $postType, // Or your custom post type
+        'posts_per_page' => $postPerPage, // Number of posts per page
+        'post_status'    => 'publish', // Only show published posts, you can use 'any' for all post statuses
+        'tax_query'      => array(
+            array(
+                'taxonomy' => $texonomy, // Replace with your taxonomy
+                'field'    => 'term_id', // Use 'term_id' to query by IDs
+                'terms'    => $termid, // Replace with your term IDs
+                'operator' => 'IN', // Can also use 'AND' or 'NOT IN'
+            ),
+        ),
+    );
+} else {
+    $args = array(
+        'post_type'      => $postType, // Or your custom post type
+        'posts_per_page' => $postPerPage, // Number of posts per page
+        'post_status'    => 'publish', // Only show published posts, you can use 'any' for all post statuses
+    );
+}
+    $posts = get_posts($args);
+    return $posts;
 }
 
 

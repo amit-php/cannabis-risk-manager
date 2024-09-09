@@ -153,9 +153,56 @@ if (!function_exists('weaversweb_ftn_options')) {
 				"std" => "",
 				"type" => "text"
 			),
-		
+			////news list
+			array(
+				"name" => "News List",
+				"type" => "heading"
+			),
+			array(
+				"name" => "Banner image",
+				"desc" => "choose banner image",
+				"id" => "nws_banner_image",
+				"std" => "",
+				"type" => "upload"
+			),
+			array(
+				"name" => "Popular News",
+				"desc" => "Enter title",
+				"id" => "popular_news",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "All News",
+				"desc" => "Enter title",
+				"id" => "all_news",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Add slot header 1",
+				"desc" => "Enter id",
+				"id" => "newsList_Add_slot_1",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Add slot header 2",
+				"desc" => "Enter id",
+				"id" => "newsList_Add_slot_2",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Add slot header 3",
+				"desc" => "Enter id",
+				"id" => "newsList_Add_slot_3",
+				"std" => "",
+				"type" => "text"
+			),
+			
 
-			//////////button section//////////////////////////
+			//////////news details//////////////////////////
 
 			array(
 				"name" => "News Details",

@@ -37,6 +37,7 @@ if (!class_exists('WeaversWeb_news_Post_Type')) :
             $args = array(
                 'labels' => $labels,
                 'public' => true,
+                'has_archive' => true,
                 'publicly_queryable' => true,
                 'show_ui' => true,
                 'query_var' => true,
@@ -83,6 +84,69 @@ if (!class_exists('WeaversWeb_news_Post_Type')) :
             );
 
             register_taxonomy('news_type', 'news', $args_one);
+            //state
+            // Add new Class Type taxonomy,NOT hierarchical(like tags)
+            $labels_one = array(
+                'name' => _x('States', 'taxonomy general name'),
+                'singular_name' => _x('news states', 'taxonomy singular name'),
+                'search_items' => __('Search news states'),
+                'popular_items' => __('Popular news states'),
+                'all_items' => __('All news states'),
+                'parent_item' => null,
+                'parent_item_colon' => null,
+                'edit_item' => __('Edit news states'),
+                'update_item' => __('Update news states'),
+                'add_new_item' => __('Add New news states'),
+                'new_item_name' => __('New news states Name'),
+                'separate_items_with_commas' => __('Separate news states with commas'),
+                'add_or_remove_items' => __('Add or remove news states'),
+                'choose_from_most_used' => __('Choose from the most used news states'),
+                'not_found' => __('No news states found.'),
+                'menu_name' => __('news states'),
+            );
+
+            $args_one = array(
+                'hierarchical' => true,
+                'labels' => $labels_one,
+                'show_ui' => true,
+                'show_admin_column' => true,
+                'update_count_callback' => '_update_post_term_count',
+                'query_var' => true,
+                'rewrite' => array('slug' => 'news-states'),
+            );
+
+            register_taxonomy('news_states', 'news', $args_one);
+            //tag
+            // Add new Class Type taxonomy,NOT hierarchical(like tags)
+            $labels_one = array(
+                'name' => _x('News tags', 'taxonomy general name'),
+                'singular_name' => _x('news tags', 'taxonomy singular name'),
+                'search_items' => __('Search news tags'),
+                'popular_items' => __('Popular news tags'),
+                'all_items' => __('All news tags'),
+                'parent_item' => null,
+                'parent_item_colon' => null,
+                'edit_item' => __('Edit news tags'),
+                'update_item' => __('Update news tags'),
+                'add_new_item' => __('Add New news tags'),
+                'new_item_name' => __('New news tags Name'),
+                'separate_items_with_commas' => __('Separate news tags with commas'),
+                'add_or_remove_items' => __('Add or remove news tags'),
+                'choose_from_most_used' => __('Choose from the most used news tags'),
+                'not_found' => __('No news tags found.'),
+                'menu_name' => __('news tags'),
+            );
+
+            $args_one = array(
+                'hierarchical' => false,
+                'labels' => $labels_one,
+                'show_ui' => true,
+                'show_admin_column' => true,
+                'query_var' => true,
+                'rewrite' => array('slug' => 'news-tag'),
+            );
+
+            register_taxonomy('news_tag', 'news', $args_one);
         }
     }
     new WeaversWeb_news_Post_Type;

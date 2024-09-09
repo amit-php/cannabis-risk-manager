@@ -9,7 +9,8 @@
                 </div>
             </div>
             <?php 
-                  $getFeaturedpostInfo = get_all_post_details(4,"news");
+                    $termids[] = 10 ;
+                    $getFeaturedpostInfo = get_post_by_tag_val("news",4,"news_tag",$termids);
                   if($getFeaturedpostInfo):
              ?>
             <div class="row">
@@ -18,8 +19,8 @@
                           $featuredPostId = $value->ID;
                           $postDetails = get_post_info($featuredPostId);
                           $authorInfo = $postDetails->author;
-                          $is_riskMang = get_field('is_it_risk_management_',$featuredPostId);
-                          if($key == 0 && $is_riskMang):
+                        
+                          if($key == 0):
                        
                     ?>
                 <div class="col-lg-4 col-md-4">
@@ -65,8 +66,7 @@
                           $featuredPostId = $value->ID;
                           $postDetails = get_post_info($featuredPostId);
                           $authorInfo = $postDetails->author;
-                          $is_riskMang = get_field('is_it_risk_management_',$featuredPostId);
-                          if ($key > 0 && $key < 4 && $is_riskMang) :
+                          if ($key > 0 && $key < 4) :
                     ?>
                 <div class="col-lg-4 col-md-4">
                     <div class="letest-news-box">
