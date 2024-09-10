@@ -264,57 +264,28 @@
     <section class="about-us-sec light-green-bg">
         <div class="container">
             <div class="partical-about-text">
-                <h6>About Us</h6>
+                <h6><?php echo get_field('about_us_title'); ?></h6>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-4">
+                    <?php
+                    $image = get_field('about_us_image');
+                    if($image){
+                    ?>
                     <div class="about-img">
-                        <img src="<?php echo THEME_DIR; ?>/images/about-bg.jpg" alt="about-bg">
+                        <img src="<?php echo $image; ?>" alt="about-bg">
                     </div>
+                    <?php } ?>
                 </div>
                 <div class="col-lg-8 col-md-8">
                     <div class="about-text">
-                        <p>Welcome to Cannabis Risk Manager, your premier destination for concise, insightful cannabis news, risk management strategies, and industry information. Cannabis Risk Manager brings together a love for the cannabis plant with profound know-how in managing risk. We built this site to be a refuge for operators wanting the real deal on products, services, and fixes for whatever’s causing them headaches.</p>
-                        <p>But we’re more than just a place to get info - we’re dedicated to empowering and lifting up every cannabis entrepreneur out there trying to make their dreams happen. So, if there is something you want to learn about, let us know, and we will do the research for you and share the content for everyone to learn from.</p>
-                        <a href="#" class="view-more-btn">Know more </a>
+                    <?php echo get_field('about_us_description'); ?>
+                        <a href="<?php echo get_field('about_us_button_link'); ?>" class="view-more-btn"><?php echo get_field('about_us_button'); ?> </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="newsletter-sec">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="news-letter-box-main">
-                        <img class="right-partical-img" src="<?php echo THEME_DIR; ?>/images/partical-right.png" alt="partical-right">
-                        <div class="news-letter-text-box">
-                            <div class="news-letter-text">
-                                <h2>Stay Informed: Sign Up for Our Exclusive  Newsletter!</h2>
-                                <p>Subscribe to Our Newsletter Today!</p>
-                            </div>
-                            <form class="row">
-                                <div class="col-lg-7 col-md-7">
-                                  <input type="email" class="form-control" placeholder="Enter Email Address">
-                                </div>
-                                <div class="col-lg-5 col-md-5">
-                                    <button class="btn" type="submit">Subscribe!</button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="partical-img-box">
-                            <img src="<?php echo THEME_DIR; ?>/images/tree-partical-right.png" alt="tree-partical">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="add-box">
-                        <img src="<?php echo THEME_DIR; ?>/images/add-bg2.jpg" alt="add-bg">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <?php get_template_part('template-part/common/newsletter'); ?>
 <?php get_footer() ; ?>

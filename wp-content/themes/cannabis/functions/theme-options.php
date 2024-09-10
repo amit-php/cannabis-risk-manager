@@ -286,9 +286,40 @@ if (!function_exists('weaversweb_ftn_options')) {
 				"std" => "",
 				"type" => "text"
 			),
+        ////////////////// Newsletter //////////////////////////
 
-
-
+			array(
+				"name" => "Newsletter",
+				"type" => "heading"
+			),
+			array(
+				"name" => "Title",
+				"desc" => "Title",
+				"id" => "newsletter_title",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Heading",
+				"desc" => "Heading",
+				"id" => "newsletter_heading",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Image",
+				"desc" => "Image",
+				"id" => "newsletter_image",
+				"std" => "",
+				"type" => "upload"
+			),
+			array(
+				"name" => "Add Slot",
+				"desc" => "Newsletter add slot",
+				"id" => "newsletter_add_slot",
+				"std" => "",
+				"type" => "text"
+			),
 		);
 		weaversweb_ftn_update_option('of_template', $options);
 	}

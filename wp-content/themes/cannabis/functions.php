@@ -121,7 +121,7 @@ add_action('admin_head', 'fix_svg');
 
 function remove_editor_from_specific_pages() {
     // List of page IDs where the editor should be removed
-    $pages = array(9); // Replace with your page IDs
+    $pages = array(9,19); // Replace with your page IDs
 
     // Check if we are in the admin area and editing a page
     if (is_admin()) {
