@@ -211,4 +211,32 @@ function get_post_by_tag_val($postType,$postPerPage,$texonomy,$termid){
     return $posts;
 }
 
+//Add image 
+function image_upload($image) {
+	require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+	require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+	require_once(ABSPATH . "wp-admin" . '/includes/media.php'); 
+	$uploadedfile = $image;
+	$upload_overrides = array( 'test_form' => false );
+	$movefile = wp_handle_upload( $uploadedfile, $upload_overrides );
+   if ( $movefile && ! isset( $movefile['error'] ) ) {
+	$filename = $movefile['file'];
+	$attachment = array(
+		'post_mime_type' => $movefile['type'],
+		'post_title' => preg_replace( '/\.[^.]+$/', '', basename( $filename ) ),
+		'post_content' => '',
+		'post_status' => 'inherit',
+		'guid' => $movefile['url']
+	);
+	$attachment_id = wp_insert_attachment( $attachment, $movefile['url'] );
+	$attachment_data = wp_generate_attachment_metadata( $attachment_id, $filename );
+	wp_update_attachment_metadata( $attachment_id, $attachment_data );
+
+    return $attachment_id;
+   } else {
+	   return $movefile['error'];
+   }
+
+}
+
 

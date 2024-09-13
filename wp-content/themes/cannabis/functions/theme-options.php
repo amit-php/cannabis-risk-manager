@@ -320,6 +320,121 @@ if (!function_exists('weaversweb_ftn_options')) {
 				"std" => "",
 				"type" => "text"
 			),
+
+	///////////////Podcast/////////////
+			array(
+				"name" => "Podcast",
+				"type" => "heading"
+			),
+			array(
+				"name" => "Header",
+				"desc" => "Podcast header",
+				"id" => "podcast_header",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Sub header",
+				"desc" => "Podcast Sub-header",
+				"id" => "podcast_sub_header",
+				"std" => "",
+				"type" => "text"
+			),	
+			array(
+				"name" => "Button name",
+				"desc" => "Podcast button-name",
+				"id" => "podcast_button_name",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Button link",
+				"desc" => "Podcast button-link",
+				"id" => "podcast_button_link",
+				"std" => "",
+				"type" => "text"
+			),	
+			
+			///////////event details//////
+			array(
+				"name" => "Event details",
+				"type" => "heading"
+			),
+			array(
+				"name" => "Ad1",
+				"desc" => "Ad1",
+				"id" => "ad1",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Ad2",
+				"desc" => "Ad2",
+				"id" => "ad2",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Ad3",
+				"desc" => "Ad3",
+				"id" => "ad3",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Ad4",
+				"desc" => "Ad4",
+				"id" => "ad4",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Ad5",
+				"desc" => "Ad5",
+				"id" => "ad5",
+				"std" => "",
+				"type" => "text"
+			),
+			///////Event//////
+			array(
+				"name" => "Event page",
+				"type" => "heading"
+			),
+			array(
+				"name" => "Banner",
+				"desc" => "Banner",
+				"id" => "event_page_banner",
+				"std" => "",
+				"type" => "upload"
+			),
+			array(
+				"name" => "Heading",
+				"desc" => "Heading",
+				"id" => "event_page_heading",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Sub heading",
+				"desc" => "Sub heading",
+				"id" => "event_page_sub_heading",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Button name",
+				"desc" => "Button name",
+				"id" => "event_page_button_name",
+				"std" => "",
+				"type" => "text"
+			),
+			array(
+				"name" => "Button Link",
+				"desc" => "Button Link",
+				"id" => "event_page_button_link",
+				"std" => "",
+				"type" => "text"
+			),
 		);
 		weaversweb_ftn_update_option('of_template', $options);
 	}

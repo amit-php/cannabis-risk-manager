@@ -19,79 +19,49 @@
             <div class="container">
                 <div class="common-heading">
                     <div class="common-heading-text transparent-bg">
-                        <h2 class="transparent-bg">Upcoming Events</h2>
+                        <h2 class="transparent-bg"><?php echo get_field('event_title') ?></h2>
                     </div>
                     <div class="common-heading-text transparent-bg right-text">
-                        <a href="#" class="view-more-btn transparent-bg">View more news </a>
+                        <a href="<?php echo get_field('event_button_link') ?>" class="view-more-btn transparent-bg"><?php echo get_field('event_button_name') ?></a>
                     </div>
                 </div>
     
                 <div class="row">
+                <?php
+                $args = array(
+                    'post_type' => 'events', // Change 'event' to your custom post type
+                    'posts_per_page' => 3,
+                    'status' =>'published',  // Limit to 3 posts
+                );
+                $query = new WP_Query($args);
+                if ($query->have_posts()) {
+                    while ($query->have_posts()) {
+                        $query->the_post();
+                ?>
                     <div class="col-lg-4 col-md-4">
                         <div class="letest-news-box">
                             <div class="letest-news-img">
-                                <img src="<?php echo THEME_DIR; ?>/images/upcomming-events1.jpg" alt="upcomming-events">
+                            <a href="<?php echo  the_permalink() ; ?>"><img src="<?php echo get_the_post_thumbnail_url($postIds, 'full') ; ?>" alt="upcomming-events"></a>
                             </div>
                             <div class="category-details-box">
                                 <ul class="category-tag">
-                                    <li>Aug 17, Sat, 2024</li>
+                                    <li><?php echo get_field('_EventStartDate'); ?></li>
                                 </ul>
-                                <h4><a href="#">Cannabis Awards Music Festival</a></h4>
+                                <h4><a href="<?php echo  the_permalink() ; ?>"><?php echo get_the_title(); ?></a></h4>
                                 <div class="date-wrapper-main">
                                     <div class="detail-box">
                                         <span><img src="<?php echo THEME_DIR; ?>/images/calender.svg" alt="calender"></span>
                                     </div>
                                     <ul class="date-box">
-                                        <li>August 17 @ 12:00 am</li>
+                                        <li><?php echo get_field('_EventStartDate'); ?> @ <?php echo get_field('start_time'); ?></li>
                                     </ul>
                                 </div>  
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-4 col-md-4">
-                        <div class="letest-news-box">
-                            <div class="letest-news-img">
-                                <img src="<?php echo THEME_DIR; ?>/images/upcomming-events2.jpg" alt="upcomming-events">
-                            </div>
-                            <div class="category-details-box">
-                                <ul class="category-tag">
-                                    <li>Aug 12, Mon, 2024</li>
-                                </ul>
-                                <h4><a href="#">AICPA & CIMA Cannabis Industry Conference</a></h4>
-                                <div class="date-wrapper-main">
-                                    <div class="detail-box">
-                                        <span><img src="<?php echo THEME_DIR; ?>/images/calender.svg" alt="calender"></span>
-                                    </div>
-                                    <ul class="date-box">
-                                        <li>August 12 @ 12:00 am - August 14 @ 12:00 am</li>
-                                    </ul>
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-4">
-                        <div class="letest-news-box">
-                            <div class="letest-news-img">
-                                <img src="<?php echo THEME_DIR; ?>/images/upcomming-events3.jpg" alt="upcomming-events">
-                            </div>
-                            <div class="category-details-box">
-                                <ul class="category-tag">
-                                    <li>Aug 7, Wed, 2024</li>
-                                </ul>
-                                <h4><a href="#">Flower Expo</a></h4>
-                                <div class="date-wrapper-main">
-                                    <div class="detail-box">
-                                        <span><img src="<?php echo THEME_DIR; ?>/images/calender.svg" alt="calender"></span>
-                                    </div>
-                                    <ul class="date-box">
-                                        <li>August 7 @ 12:00 am - August 8 @ 12:00 am</li>
-                                    </ul>
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
+                    <?php } } 
+                wp_reset_postdata();
+                ?>
                 </div>
             </div>
         </div>
@@ -105,53 +75,40 @@
         <div class="container">
             <div class="common-heading">
                 <div class="common-heading-text">
-                    <h2 class="light-green-bg">Ebooks</h2>
+                    <h2 class="light-green-bg"><?php echo get_field('ebook_tile'); ?></h2>
                 </div>
                 <div class="common-heading-text right-text">
-                    <a href="#" class="view-more-btn light-green-bg">View all  </a>
+                    <a href="<?php echo get_field('ebook_button_link'); ?>" class="view-more-btn light-green-bg"><?php echo get_field('ebook_button_name'); ?>  </a>
                 </div>
             </div>
 
             <div class="row">
+            <?php
+                $args = array(
+                    'post_type' => 'ebook', // Change 'event' to your custom post type
+                    'posts_per_page' => 3,  // Limit to 3 posts
+                );
+                $query = new WP_Query($args);
+                if ($query->have_posts()) {
+                    while ($query->have_posts()) {
+                        $query->the_post();
+                ?>
                 <div class="col-lg-4 col-md-4">
                     <a href="#">
                         <div class="ebook-wrapper">
                             <div class="ebook-img">
-                                <img src="<?php echo THEME_DIR; ?>/images/ebook-1.png" alt="ebook-bg">
+                            <a href="<?php echo  the_permalink() ; ?>"><img src="<?php echo get_the_post_thumbnail_url($postIds, 'full') ; ?>" alt="ebook-bg"></a>
                             </div>
                             <div class="ebook-title">
-                                <h4>Cannabis vs Marijuana</h4>
-                                <p>Cannabis risk manager staff</p>
+                                <h4><a href="<?php echo  the_permalink() ; ?>"><?php echo get_the_title(); ?></a></h4>
+                                <p><?php echo get_the_excerpt(); ?></p>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-md-4">
-                    <a href="#">
-                        <div class="ebook-wrapper">
-                            <div class="ebook-img">
-                                <img src="<?php echo THEME_DIR; ?>/images/ebook-2.png" alt="ebook-bg">
-                            </div>
-                            <div class="ebook-title">
-                                <h4>Pot for pain relief</h4>
-                                <p>Cannabis risk manager staff</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <a href="#">
-                        <div class="ebook-wrapper">
-                            <div class="ebook-img">
-                                <img src="<?php echo THEME_DIR; ?>/images/ebook-3.png" alt="ebook-bg">
-                            </div>
-                            <div class="ebook-title">
-                                <h4>Cannabis- Extraktion</h4>
-                                <p>Cannabis risk manager staff </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                <?php } } 
+                wp_reset_postdata();
+                ?>
             </div>
         </div>
     </section>
@@ -160,87 +117,78 @@
         <div class="container">
             <div class="common-heading">
                 <div class="common-heading-text">
-                    <h2>Featured Podcast</h2>
+                    <h2><?php echo get_field('podcast_title'); ?></h2>
                 </div>
             </div>
+            <?php
+                $allPost = get_post_by_tag_val("poadcast",4,false,false);
+                $postIds= [];
+                foreach($allPost as $postval){
+                    $check = get_field('select',$postval->ID);
+                    if($check){
+                    $postIds[] = $postval->ID;
+                    }
 
+                }
+            ?>      
+   
             <div class="row">
                 <div class="col-lg-6">
+                <?php
+               
+                if ($postIds) {
+                    foreach ($postIds as $key => $valueId) {
+                           if($key == 0)  {                      
+                ?>
                     <div class="podcast-main-box">
                         <div class="podcast-img">
-                            <img src="<?php echo THEME_DIR; ?>/images/poadcast-bg.jpg" alt="poadcast-bg">
+                        <img src="<?php echo get_the_post_thumbnail_url($valueId, 'full') ; ?>" alt="poadcast-bg">
                         </div>
                         <div class="poadcast-text-box">
                             <div class="poadcastmain-text">
                                 <ul class="poadcast-title-tag">
-                                    <li>Directed by Martin Monney</li>
+                                    <li>Directed by <?php echo get_field('podcast_host',$valueId); ?></li>
                                 </ul>
-                                <h3 class="poadcast-title"><a href="#">The Cannabis Hangout11</a></h3>
-                                <p>20 Episodes</p>
+                                <h3 class="poadcast-title"><?php echo get_the_title($valueId); ?></h3>
+                                <p><?php echo get_post_field('post_content',$valueId); ?></p>
                             </div>
-                            <a href="#" class="poadcast-button-box"></a>
+                            <!-- <a href="#" class="poadcast-button-box"></a> -->
                         </div>
                     </div>
+                    <?php } } }
+                ?>
                 </div>
 
                 <div class="col-lg-6">
                     <div class="featured-main-box podcast-main-wrapper">
-                            <div class="featured-img-box">
-                                <div class="featured-img">
-                                    <img src="<?php echo THEME_DIR; ?>/images/poadcast-bg-small.jpg" alt="poadcast-bg">
-                                    <a href="#" class="poadcast-button-box"></a>
-                                </div>
-                                <div class="category-details-box">
-                                    <ul class="category-tag">
-                                        <li>Directed by Martin Monney</li>
-                                    </ul>
-                                    <h4><a href="#">95bFM: Marijuana Media</a></h4>
-                                    <div class="date-wrapper-main">
-                                        <ul class="date-box">
-                                            <li>10 Episodes</li>
-                                        </ul>
-                                    </div>  
-                                </div>
-                            </div>
+                    <?php
+               if ($postIds) {
+                   foreach ($postIds as $key => $valueId) {
 
+                          if($key > 0)  {                        
+               ?>
                             <div class="featured-img-box">
                                 <div class="featured-img">
-                                    <img src="<?php echo THEME_DIR; ?>/images/poadcast-bg-small2.jpg" alt="poadcast-bg">
-                                    <a href="#" class="poadcast-button-box"></a>
+                                <img src="<?php echo get_the_post_thumbnail_url($valueId, 'full') ; ?>" alt="poadcast-bg">
+                                    <!-- <a href="#" class="poadcast-button-box"></a> -->
                                 </div>
                                 <div class="category-details-box">
                                     <ul class="category-tag">
-                                        <li>Directed by Fyllo</li>
+                                        <li>Directed by <?php echo get_field('podcast_host',$valueId); ?></li>
                                     </ul>
-                                    <h4><a href="#">Alchemy</a></h4>
+                                    <h4><?php echo get_the_title($valueId); ?></h4>
                                     <div class="date-wrapper-main">
                                         <ul class="date-box">
-                                            <li>15 Episodes</li>
+                                            <li><?php echo get_post_field('post_content',$valueId); ?></li>
                                         </ul>
                                     </div>  
                                 </div>
                             </div>
-
-                            <div class="featured-img-box">
-                                <div class="featured-img">
-                                    <img src="<?php echo THEME_DIR; ?>/images/poadcast-bg-small3.jpg" alt="poadcast-bg">
-                                    <a href="#" class="poadcast-button-box"></a>
-                                </div>
-                                <div class="category-details-box">
-                                    <ul class="category-tag">
-                                        <li>Directed by Martin Monney</li>
-                                    </ul>
-                                    <h4><a href="#">The Broccoli Journal</a></h4>
-                                    <div class="date-wrapper-main">
-                                        <ul class="date-box">
-                                            <li>10 Episodes</li>
-                                        </ul>
-                                    </div>  
-                                </div>
-                            </div>
+                            <?php } } }
+                                ?>
 
                         <div class="view-more-artical">
-                            <a href="#" class="view-more-btn">View more podcast </a>
+                            <a href="<?php echo get_field('podcast_button_link'); ?>" class="view-more-btn"><?php echo get_field('podcast_button_name'); ?> </a>
                         </div>
                     </div>
                 </div>

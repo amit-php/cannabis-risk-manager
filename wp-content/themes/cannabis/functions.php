@@ -139,3 +139,176 @@ function remove_editor_from_specific_pages() {
 }
 add_action('admin_init', 'remove_editor_from_specific_pages');
 
+add_action('wp_ajax_send_email_and_download_pdf', 'send_email_and_download_pdf');
+
+// Hook for non-logged-in users
+add_action('wp_ajax_nopriv_send_email_and_download_pdf', 'send_email_and_download_pdf');
+
+//// EBook Download//////
+function send_email_and_download_pdf() {
+    // Get the posted data from the AJAX request
+    $full_name = sanitize_text_field($_POST['fullName']);
+    $email = sanitize_email($_POST['email']);
+	$pdf_image = esc_url_raw($_POST['pdf_image']);
+    $pdf_file_name = basename($pdf_image);
+
+    // Determine the base URL for the uploads directory
+    $upload_dir = wp_get_upload_dir();
+    $base_url = $upload_dir['baseurl']; // Base URL for the uploads directory
+
+    // Construct the PDF URL
+    $pdf_url = $base_url . '/' . $pdf_file_name;
+	// echo $full_name;
+    
+	 $admin_email = get_option('admin_email');
+	// echo $admin_email;
+    // Setup the email content
+	$to = $admin_email; // The email where form submissions should go
+    $subject = "New E-book Request";
+    $message = "Full Name: $full_name\nEmail: $email\nPDF File: $pdf_file_name";
+    $headers = array('Content-Type: text/html; charset=UTF-8', 'From: no-reply@yourdomain.com');
+
+    // Send email
+    if (wp_mail($to, $subject, $message, $headers)) {
+        // If email sent successfully, return the PDF URL
+        wp_send_json_success(array('pdf_url' => $pdf_url));
+    } else {
+        wp_send_json_error('Failed to send email.');
+    }
+
+    wp_die(); // Required to terminate immediately and return a response
+}
+function fetch_month_events(){
+	$date = $_POST['month'];
+	$dateParts = explode('-', $date);
+	$year = $dateParts[0]; // 2024
+    $month = $dateParts[1]; // 06
+	$args = array(
+		'post_type'  => 'events', // You can change this to your custom post type
+		'post_status' => 'publish',
+		'meta_query' => array(
+			'relation' => 'AND', // Can be 'AND' or 'OR'
+			array(
+				'key'     => '_Month', // First meta key
+				'value'   => $month,     // First meta value
+				'compare' => '=',          // Comparison operator
+			),
+			array(
+				'key'     => '_Year', // Second meta key
+				'value'   => $year,           // Second meta value
+				'compare' => '=',          // Comparison operator
+			),
+		),
+	);
+	
+	// Custom query
+	$query = new WP_Query( $args );
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+			$query->the_post(); 
+			$postIds = get_the_ID();
+			?>
+			    <div class="col-lg-4 col-md-6">
+                                    <div class="letest-news-box">
+                                        <div class="letest-news-img">
+                                        <a href="<?php the_permalink();?>"><img src="<?php echo get_the_post_thumbnail_url($postIds); ?>" alt="upcomming-events"></a>
+                                        </div>
+                                        <div class="category-details-box">
+                                            <ul class="category-tag">
+                                                <li><?php echo get_field('_EventStartDate') ; ?></li>
+                                            </ul>
+                                            <h4><a href="<?php the_permalink();?>"><?php the_title() ; ?></a></h4>
+                                            <div class="date-wrapper-main">
+                                                <div class="detail-box">
+                                                    <span><img src="<?php echo THEME_DIR; ?>/images/calender.svg" alt="calender"></span>
+                                                </div>
+                                                <ul class="date-box">
+                                                    <li><?php echo get_field('_EventStartDate') ; ?> @ <?php echo get_field('start_time') ; ?></li>
+                                                </ul>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </div>
+<?php 
+		} 
+		die;
+	} else {
+		echo "<p class='error_message'>There are no any events in this month.</p>";
+		die;
+	}
+}
+add_action('wp_ajax_fetch_month', 'fetch_month_events');
+add_action('wp_ajax_nopriv_fetch_month', 'fetch_month_events');
+//fetch by day
+
+function fetch_day_events(){
+	$date = $_POST['day'];
+	//echo $date;
+	//die;
+	$dateParts = explode('-', $date);
+	$year = $dateParts[0]; // 2024
+    $month = $dateParts[1]; // 06
+	$day = $dateParts[2]; // 06
+	$args = array(
+		'post_type'  => 'events', // You can change this to your custom post type
+		'post_status' => 'publish',
+		'meta_query' => array(
+			'relation' => 'AND', // Can be 'AND' or 'OR'
+			array(
+				'key'     => '_Month', // First meta key
+				'value'   => $month,     // First meta value
+				'compare' => '=',          // Comparison operator
+			),
+			array(
+				'key'     => '_Year', // Second meta key
+				'value'   => $year,           // Second meta value
+				'compare' => '=',          // Comparison operator
+			),
+			array(
+				'key'     => '_Day', // Second meta key
+				'value'   => $day,           // Second meta value
+				'compare' => '=',          // Comparison operator
+			),
+		),
+	);
+	
+	// Custom query
+	$query = new WP_Query( $args );
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+			$query->the_post(); 
+			$postIds = get_the_ID();
+			?>
+			    <div class="col-lg-4 col-md-6">
+                                    <div class="letest-news-box">
+                                        <div class="letest-news-img">
+                                        <a href="<?php the_permalink();?>"><img src="<?php echo get_the_post_thumbnail_url($postIds); ?>" alt="upcomming-events"></a>
+                                        </div>
+                                        <div class="category-details-box">
+                                            <ul class="category-tag">
+                                                <li><?php echo get_field('_EventStartDate') ; ?></li>
+                                            </ul>
+                                            <h4><a href="<?php the_permalink();?>"><?php the_title() ; ?></a></h4>
+                                            <div class="date-wrapper-main">
+                                                <div class="detail-box">
+                                                    <span><img src="<?php echo THEME_DIR; ?>/images/calender.svg" alt="calender"></span>
+                                                </div>
+                                                <ul class="date-box">
+                                                    <li><?php echo get_field('_EventStartDate') ; ?> @ <?php echo get_field('start_time') ; ?></li>
+                                                </ul>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </div>
+<?php 
+		} 
+		die;
+	} else {
+		echo "<p class='error_message'>There are no any events in this day.</p>";
+		die;
+	}
+}
+add_action('wp_ajax_fetch_day', 'fetch_day_events');
+add_action('wp_ajax_nopriv_fetch_day', 'fetch_day_events');
+
+

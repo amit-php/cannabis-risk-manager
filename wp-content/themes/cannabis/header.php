@@ -17,7 +17,7 @@
 </head>
 <body <?php body_class(); ?>>
 <!--header sction-->
-<header class="main-header<?php if (is_single()) { echo ' nobanner-header'; } ?>">
+<header class="main-header<?php if (is_single() || is_page(297) ||  is_page(306) ||is_page(25)) { echo ' nobanner-header'; } ?>">
     <div class="container header-row">
         <div class="top-header">
             <div class="right-box">
@@ -58,9 +58,10 @@
                                 <a class="close" href="#close"><i class="fas fa-times"></i></a>
                                 <div class="search-main">
                                     <div class="search-inner">
-                                        <input type="text" id="inputSearch" placeholder="Search here">
+                                        <?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
